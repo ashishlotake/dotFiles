@@ -1,0 +1,40 @@
+# https://github.com/dunst-project/dunst/blob/master/dunstrc
+
+[global]
+    font = default 14
+    background = "#504945"
+    frame_color = "#ebdbb2"
+    width = 350
+    radius = 10
+    offset = 50x55
+    
+    highlight = "#e78a4e"
+    progress_bar_corner_radius = 10
+
+
+
+    # Set the maximum width for the progress bar
+    # progress_bar_max_width = 300
+
+
+# [urgency_low]
+#     msg_urgency = low
+#     background = "#504945"
+#     foreground = "#E5E9F0"
+#    highlight="#e78a4e"
+
+# [urgency_normal]
+#     msg_urgency = normal
+#     background = "#504945"
+#     foreground = "#E5E9F0"
+
+[urgency_critical]
+    msg_urgency = critical
+    background = "#ff0000"
+    foreground = "#000000"
+    transparency = 10
+
+
+
+
+

@@ -1,0 +1,150 @@
+//====================================================================================================//
+// Waybar Configuration File                                                                          //
+//----------------------------------------------------------------------------------------------------//
+// Purpose: Creates a minimalistic (yet functional) waybar at                                         //
+// the top of the screen.                                                                             //
+// themes and colors, set the wallpaper, and more.                                                    //
+//                                                                                                    //
+// License: Creative Commons Attribution 4.0 International                                            //
+//                                                                                                    //
+// Credit:                                                                                            //
+// Battery section adapted from:                                                                      //
+// https://github.com/Egosummiki/dotfiles/blob/master/waybar/config                                   //
+//                                                                                                    //
+// Pipewire audio adapted from:                                                                       //
+// https://www.reddit.com/r/swaywm/comments/sks343/pwvolume_pipewire_volume_control_and_waybar_module //
+//====================================================================================================//
+
+{
+    "layer": "top",
+    "position": "top",
+    "height": 36,
+    "spacing": 4,
+    "margin-top": 0,
+    "margin-bottom": 0,
+
+    // Choose the order of the modules
+    "modules-left": ["backlight", "pulseaudio", "sway/workspaces", "sway/mode"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["sway/scratchpad","network","battery","tray","clock"],
+
+    // Configuration for individual modules
+     "sway/workspaces": {
+         "disable-scroll": true,
+         "all-outputs": false,
+         "format": "{name}",
+        //  "format-icons": {
+        //     "1": "1 - Communication",
+        //     "2": "2 - Browsing",
+        //     "3": "3 - System Admin",
+        //     "4": "4 - Terminal",
+        //     "5": "5 - Media",
+        //     "6": "6 - Music",
+        //     "7": "7 - Lab",
+        //     "8": "8 - Bro!!!",
+        //     "9": "9 - Unwind",
+        //     "10": "10 - Really",
+        //     }
+    
+    },
+    "sway/scratchpad": {
+        "format": "{icon} {count}",
+        "show-empty": false,
+        "format-icons": ["", ""],
+        "tooltip": true,
+        "tooltip-format": "{app}: {title}"
+    },
+
+
+    "sway/window": {
+        "format": "{app_id} - {}",
+        "max-length": 50
+    },
+
+
+    "tray": {
+        "icon-size": 24,
+        "spacing": 10,
+    },
+
+    "clock": {
+       	"format": "{:%a %d %b %H:%M}",
+        "on-click": "footclient -T waybar_calcurse -e calcurse",
+        "tooltip-format": " {:%A %m/%d}\n\n<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "on-scroll": 1,
+            "format": {
+                "months":     "<span color='#ffead3'><b>{}</b></span>",
+                "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+            },
+	},
+	"actions": {
+            "on-scroll-up": "shift_up",
+            "on-scroll-down": "shift_down"
+        },
+    },
+
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15,
+        },
+        "format": "{icon} {capacity}%",
+        "format-charging": "⚡{capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{time} {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""],
+    },
+
+    "network": {
+        "interface": "wlp4s0", // (Optional) To force the use of this interface
+        "format": " Disabled",
+        "format-wifi": "↓{bandwidthDownBits} ↑{bandwidthUpBits} -   {signalStrength}%",
+        "format-ethernet": "Connected  ",
+        "tooltip-format": "{ifname}: {gwaddr}",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        // "on-click-right": "bash ",
+        "interval": 2,
+    },
+
+    "backlight": {
+        "format": "{icon}{percent: >3}%",
+        "format-icons": [""],
+        "tooltip-format": "Backlight (Scroll): {percent: >3}%",
+        "on-scroll-down": "brightnessctl -c backlight set 5%-",
+        "on-scroll-up": "brightnessctl -c backlight set +5%"
+    },
+    
+
+
+    "pulseaudio": {
+        "scroll-step": 0,
+        "format": "{icon}{volume: >3}%",
+        "format-bluetooth": "{icon}{volume: >3}%",
+        "format-muted":"󰝟 muted",
+        "format-icons": {
+            "headphones": "",
+            "handsfree": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", ""]
+        },
+        "on-click": "footclient -T waybar_alsamixer -e alsamixer -M"
+    },
+
+    "custom/power": {
+    	"format":"⏻",
+    	"on-click": "exec nwg-bar",
+    	"tooltip": false,
+    },
+}

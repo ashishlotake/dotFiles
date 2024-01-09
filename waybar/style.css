@@ -1,0 +1,137 @@
+window#waybar {
+    background: transparent;
+    padding-top: 3px;
+    background-color: rgba(31, 31, 31, 0.9);
+    /* padding: 50px 20px; */
+    transition: .2s;
+    transition-property: background-color;
+}
+* {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    min-height: 0;
+    padding: 2px 8px;
+    color: #ffffff;
+}
+
+
+#custom-power, 
+#mode,
+#window,
+#scratchpad,
+#network,
+#backlight,
+#pulseaudio,
+#battery,
+#clock {
+    /* padding: 2px 8px; */
+    opacity: 0.7;
+    color: #fff;  
+}
+
+#mode {
+    color: yellow;
+    font-style: italic;
+    
+}
+
+#backlight {
+    padding-left: 0px;
+}
+
+#battery.charging, #battery.plugged {
+    color: lightgreen;
+}
+
+#battery.critical:not(.charging) {
+    animation-direction: alternate;
+    animation-duration: 0.2s;
+    animation-iteration-count: infinite;
+    animation-name: blink;
+    animation-timing-function: linear;
+    background-color: #fb4934;
+    color: yellow;
+}
+
+#clock {
+    margin: 0px;
+    padding-right: 0px;
+}
+
+#network {
+    background: transparent;
+    opacity: 0.7;
+}
+
+#network.disconnected {
+    background: #1f1f1f;
+    color: #fb4934;
+}
+
+#tray {
+    background-color:rgba(0, 0, 0, 0.4);
+    color: #ffffff;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+    background: #1f1f1f;
+    color: #ffffff;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background: #1f1f1f;
+    color: #ffffff;
+}
+
+
+#workspaces button:hover {
+    /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid #ffffff;
+    box-shadow: inherit;
+    color: #ffffff;
+}
+
+#workspaces button {
+    background: transparent;
+    /* color: #ffffff; */
+    /* margin-left: 2px; */
+    margin-right: 4px;
+    /* opacity: 0.7; */
+    padding-top: 5px;
+}
+
+#workspaces button.focused {
+    background: rgba(0, 0, 0, 0.4);
+    border: 1px solid green;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+}
+
+
+#pulseaudio.bluetooth.muted,
+#pulseaudio.muted {
+    background-color: #fb4934;
+    border-radius: 5px;
+}
+
+#pulseaudio.bluetooth {
+    background-color: #288ff0;
+    border-radius: 5px;
+}
+
+
+#custom-power {
+    background: transparent;
+    opacity: 0.7;
+    border: 1px solid green;
+    padding-left: 20px;
+    padding-right: 20px;
+}

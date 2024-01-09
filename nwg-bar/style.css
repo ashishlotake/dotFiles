@@ -1,0 +1,47 @@
+#bar {
+    margin: 30px; /* affects top/bottom & left/right alignment */
+
+}
+
+button, image {
+    border-radius: 25px;
+    /* box-shadow: none; */
+    /* color: #ebdbb2; */
+}
+
+image {
+    margin-bottom: 20px;
+}
+
+button {
+    /* padding-top: 10px;
+    margin: 5px */
+    padding: 75px 80px;
+    margin: 20px;
+    background: #504945;
+    font-size: 25px;
+    /* font-family: sans-serif; */
+}
+
+button:hover {
+    background-color: #73bb26;
+    /* color: #24273a; */
+    
+}
+
+button:focus {
+    background-color: #73bb26;
+    /* color: #24273a; */
+}
+
+grid {
+    border-radius: 5px;
+    padding: 5px;
+    /* box-shadow: 0 0 5px black;  */
+    /* e.g. for common background to all buttons */
+}
+window {
+    /* background-color: rgba (0, 0, 0, 0.5); */
+    background-color: #282828;
+    border-radius: 25px;
+}
