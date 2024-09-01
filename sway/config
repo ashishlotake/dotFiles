@@ -27,11 +27,11 @@ include '$(/usr/libexec/sway/layered-include "/usr/share/sway/config.d/*.conf" "
 
 
 #================================================#
-# Basics 
+# Basics
 #================================================#
 
 # terminal emulator
-## Requires:- kitty 
+## Requires:- kitty
 set $term kitty
 
 # Home row direction keys, like vim
@@ -53,7 +53,7 @@ set $menu $rofi_cmd -show
 
 
 #================================================#
-# Key bindings 
+# Key bindings
 #================================================#
 
 # Start a terminal
@@ -89,10 +89,11 @@ bindsym $mod+shift+o exec nwg-bar
 # Launch the file explorer
 bindsym $mod+e exec thunar
 # Launch the browser
-bindsym $mod+w exec firefox
+# bindsym $mod+w exec firefox
+bindsym $mod+w exec zen-browser
 
 #================================================#
-# Moving around 
+# Moving around
 #================================================#
 
 # Move your focus around
@@ -121,7 +122,7 @@ bindsym $mod+Shift+Right move right
 
 
 #================================================#
-# Workspaces 
+# Workspaces
 #================================================#
 
 ## Switch to workspace
@@ -151,7 +152,7 @@ bindsym $mod+Shift+0 move container to workspace number 10
 
 
 #================================================#
-# Layout 
+# Layout
 #================================================#
 
 # Set how the current window will be split
@@ -179,7 +180,7 @@ bindsym $mod+f fullscreen
 
 
 #================================================#
-# Scratchpad 
+# Scratchpad
 #================================================#
 
 # Sway has a "scratchpad", which is a bag of holding for windows.
@@ -193,7 +194,7 @@ bindsym $mod+Shift+minus move scratchpad
 bindsym $mod+minus scratchpad show
 
 #================================================#
-# Resizing containers 
+# Resizing containers
 #================================================#
 
 mode "resize" {
@@ -222,7 +223,7 @@ bindsym $mod+r mode "resize"
 
 
 #================================================#
-# Appearance and Theming 
+# Appearance and Theming
 #================================================#
 # Declare Colors:
 set $background #332b2b
@@ -251,7 +252,7 @@ default_border pixel 4
 exec ~/.azotebg
 
 #================================================#
-# Misc. 
+# Misc.
 #================================================#
 
 ## Touchpad
@@ -259,7 +260,7 @@ exec ~/.azotebg
 input type:touchpad {
     tap enabled
     natural_scroll enabled
-    # accel_profile "flat" 
+    # accel_profile "flat"
     # disable mouse acceleration (enabled by default; to set it manually, use "adaptive" instead of "flat")
     pointer_accel 0.2
     # set mouse sensitivity (between -1 and 1)
@@ -287,8 +288,10 @@ seat seat0 xcursor_theme default $my_cursor_size
 ## Scaling Factor
 #output 'BOE 0x0985 Unknown' scale 1.25
 
-## firefox PiP 
+## firefox PiP
 for_window [app_id="firefox" title="^Picture-in-Picture$"] floating enable, move position center, sticky enable
+for_window [app_id="zen-alpha" title="^Picture-in-Picture$"] floating enable, move position center, sticky enable
+
 ## turn on numlock
 input * xkb_numlock enabled
 
@@ -298,10 +301,11 @@ for_window [app_id="blueman-manager"] floating enable, move position center
 ## copyq
 exec_always copyq # autostart
 for_window [app_id="com.github.hluk.copyq"] floating enable, move position center
-bindsym $mod+v exec copyq show 
+bindsym $mod+v exec copyq show
 
 
 ## color picker
 bindsym $mod+p exec grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:- | tail -n 1 | cut -d ' ' -f 4 | wl-copy | notify-send -t 1000 "color" "$(clippaste)"
 
-exec_always $HOME/.config/sway/script/battery.sh
+## lock screen
+bindsym $mod+Shift+Escape  exec loginctl lock-session
