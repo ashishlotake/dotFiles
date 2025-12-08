@@ -1,14 +1,21 @@
 {
-"Maths": [
-  "The problem should be self-contained.",
-  "Use plain text only.",
-  "Target difficulty: high school level.",
-  "Include real-life context where possible."
-
-  ],
-"Physics": [
-  "Focus on classical mechanics, thermodynamics, or basic electricity.",
-  "Use SI units.",
-  "Avoid calculus-heavy problems unless requested."
- ]
+  "subjects": [
+    {
+      "id": "maths",
+      "name": "Maths",
+      "rules": [
+          "The problem should be self-contained.",
+          "Use plain text only.",
+      ]
+    },
+    {
+      "id": "physics",
+      "name": "Physics",
+      "rules": [
+        "Focus on classical mechanics, thermodynamics, or electricity.",
+        "Use SI units."
+      ]
+    }
+  ]
 }
+
