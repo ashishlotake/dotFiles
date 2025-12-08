@@ -1,22 +1,11 @@
-{
-  "subjects": [
-    {
-      "id": "maths",
-      "name": "Maths",
-      "rules": [
-          "The problem should be self-contained.",
-          "Use plain text only.",
-          "Randomly choose topic from: Algebra, Geometry, Mensuration, Quadratic equations, Linear equations, Probability, Statistics, Number systems, Polynomials, Trigonometry."
-      ]
-    },
-    {
-      "id": "physics",
-      "name": "Physics",
-      "rules": [
-        "Focus on classical mechanics, thermodynamics, or electricity.",
-        "Use SI units."
-      ]
-    }
-  ]
-}
+"Maths": [
+  "The problem should be self-contained.",
+  "Use plain text only.",
+  "Randomly choose topic from: Algebra, Geometry, Mensuration, Quadratic equations, Linear equations, Probability, Statistics, Number systems, Polynomials, Trigonometry."
+
+  ],
+"Physics": [
+  "Focus on classical mechanics, thermodynamics, or basic electricity.",
+  "Use SI units.",
+ ]
 
